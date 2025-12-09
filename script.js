@@ -10,8 +10,8 @@ const SITE_CONFIG = {
     accentColor: "#f59e42",
     backgroundColor: "#f8fafc",
     fontFamily: "'Inter', sans-serif",
-    heroHeading: "Creative Digital Solutions",
-    heroSubheading: "Web, Design, Gaming & More",
+    heroHeading: "Creative Digital & Graphics Solutions",
+    heroSubheading: "Web, Graphics Design, Gaming & More",
     heroImage: "https://placehold.co/600x400/3b82f6/ffffff?text=Hero+Image",
     contactEmail: "hello@calypsostudio.tech",
     socialLinks: {
@@ -27,21 +27,21 @@ const SITE_CONFIG = {
 
 const TESTIMONIALS = [
     {
-        name: "John Miller",
-        role: "E-commerce Owner",
-        text: "Calypso Studio exceeded my expectations! They built a beautiful website that increased my sales by 40%.",
+        name: "Sujan Shrestha",
+        role: "Business Owner",
+        text: "Calypso Studio created a stunning website for my business. The design is modern and user-friendly, and my customers love it! Highly recommended for web development in Nepal.",
         rating: 5
     },
     {
-        name: "Sarah Anderson",
-        role: "Community Manager",
-        text: "The Discord bot transformed how we manage our community. Highly professional team!",
+        name: "Pratima Karki",
+        role: "Graphic Designer",
+        text: "Their graphics design team is amazing! My brand now looks professional and unique. The logo and social media posts they designed helped me grow my audience.",
         rating: 5
     },
     {
-        name: "Michael King",
+        name: "Bibek Rai",
         role: "Startup Founder",
-        text: "Amazing logo design! They captured our brand perfectly. Will hire again!",
+        text: "I needed a custom Discord bot and Calypso Studio delivered exactly what I wanted. Fast, reliable, and great support throughout the process.",
         rating: 5
     }
 ];
@@ -52,8 +52,8 @@ const TESTIMONIALS = [
 const ABOUT_CALYPSO = {
     heading: `About ${SITE_CONFIG.siteName}`,
     paragraphs: [
-        `${SITE_CONFIG.siteName} is a creative development agency specializing in comprehensive digital solutions. With over 5 years of experience, we've helped numerous businesses establish their digital presence.`,
-        "Our team of skilled developers, designers, and strategists work collaboratively to deliver exceptional results across web development, gaming, and design projects."
+        `${SITE_CONFIG.siteName} is a creative development agency based in Nepal, specializing in web development, graphics design, and digital solutions. With over 5 years of experience, we've helped Nepali businesses and startups build their online presence and brand identity.",
+        "Our passionate team of developers and designers deliver high-quality websites, logos, and digital products tailored for the Nepali market. We believe in creativity, collaboration, and client satisfaction."
     ],
     stats: [
         { label: "Projects Done", value: "50+" },
@@ -72,7 +72,7 @@ const SERVICES = [
     {
         id: 1,
         title: "Custom Website",
-        description: "Modern, responsive websites built for your business.",
+        description: "Modern, responsive websites built for Nepali businesses and organizations.",
         icon: "fas fa-globe"
     },
     {
@@ -83,8 +83,8 @@ const SERVICES = [
     },
     {
         id: 3,
-        title: "Logo & Design",
-        description: "Creative branding and graphic design services.",
+        title: "Logo & Graphics Design",
+        description: "Professional logo, branding, and graphics design for Nepali brands, events, and social media.",
         icon: "fas fa-palette"
     },
     {
@@ -264,25 +264,22 @@ function renderProjects(containerId = 'projects-container', projects = null) {
 
     const projectsToRender = projects || PROJECTS;
     
-    container.innerHTML = projectsToRender.map(project => `
-        <div class="bg-white rounded-xl overflow-hidden border border-gray-200 hover-lift">
-            <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
-            <div class="p-6">
-                <h3 class="font-bold text-gray-900 mb-2">${project.title}</h3>
-                <p class="text-sm text-gray-600 mb-3">${project.description}</p>
-                <div class="flex flex-wrap gap-1 mb-4">
-                    ${project.tags.map(tag => `
-                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
-                            ${tag}
-                        </span>
-                    `).join('')}
-                </div>
-                <a href="${project.demoLink}" target="_blank" rel="noopener noreferrer" class="text-sm text-blue-600 hover:text-blue-700 font-medium">
-                    View Demo →
-                </a>
-            </div>
-        </div>
-    `).join('');
+    let html = '';
+    projectsToRender.forEach(project => {
+        html += '<div class="bg-white rounded-xl overflow-hidden border border-gray-200 hover-lift">';
+        html += '<img src="' + project.image + '" alt="' + project.title + '" class="w-full h-48 object-cover">';
+        html += '<div class="p-6">';
+        html += '<h3 class="font-bold text-gray-900 mb-2">' + project.title + '</h3>';
+        html += '<p class="text-sm text-gray-600 mb-3">' + project.description + '</p>';
+        html += '<div class="flex flex-wrap gap-1 mb-4">';
+        project.tags.forEach(tag => {
+            html += '<span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">' + tag + '</span>';
+        });
+        html += '</div>';
+        html += '<a href="' + project.demoLink + '" target="_blank" rel="noopener noreferrer" class="text-sm text-blue-600 hover:text-blue-700 font-medium">View Demo →</a>';
+        html += '</div></div>';
+    });
+    container.innerHTML = html;
 }
 
 /**
