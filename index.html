@@ -8,8 +8,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script src="script.js" defer></script>
-    <!-- Optional: Uncomment for EmailJS integration (see EMAILJS_SETUP.md) -->
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script> -->
     <style>
         .gradient-text {
             background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
@@ -45,8 +43,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <a href="/" class="flex items-center gap-2 hover:opacity-80 transition">
-                    <img src="https://placehold.co/40x40/3b82f6/ffffff?text=CS" alt="Calypso Studio Logo" class="w-10 h-10 rounded-lg">
-                    <span class="font-bold text-xl gradient-text">Calypso Studio</span>
+                    <img src="https://placehold.co/160x40/3b82f6/ffffff?text=Calypso+Studio" alt="Calypso Studio placeholder logo" class="h-10 w-auto rounded-lg">
                 </a>
                 <div class="hidden md:flex gap-8">
                     <a href="#services" class="text-gray-700 hover:text-blue-600 transition text-sm">Services</a>
@@ -323,35 +320,7 @@
                 <p class="text-gray-600">Have a project in mind? Let's talk!</p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Contact Form -->
-                <div>
-                    <form id="contactForm" class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-900 mb-2">Name</label>
-                            <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 text-sm">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-900 mb-2">Email</label>
-                            <input type="email" name="email" placeholder="your@email.com" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 text-sm">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-900 mb-2">Subject</label>
-                            <input type="text" name="subject" placeholder="Project Details" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 text-sm">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-900 mb-2">Message</label>
-                            <textarea name="message" placeholder="Tell us about your project..." rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 text-sm"></textarea>
-                        </div>
-                        <button type="submit" class="w-full px-6 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition text-sm disabled:opacity-50 disabled:cursor-not-allowed" id="submitBtn">
-                            Send Message
-                        </button>
-                        <div id="formMessage" class="hidden text-sm p-3 rounded-lg"></div>
-                    </form>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="space-y-6">
+            <div class="space-y-6">
                     <div class="flex gap-4">
                         <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                             <i class="fas fa-map-marker-alt text-blue-600"></i>
@@ -414,8 +383,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 py-12 px-4">
         <div class="max-w-6xl mx-auto">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
@@ -484,11 +451,11 @@
         // METHOD 1: Formspree (Recommended - Simplest)
         // 1. Sign up at https://formspree.io
         // 2. Replace YOUR_FORMSPREE_ID with your form ID
-        const EMAIL_METHOD = 'formspree'; // or 'emailjs'
-        const FORMSPREE_ID = 'YOUR_FORMSPREE_ID'; // Replace this
-        
-        // METHOD 2: EmailJS (Direct Gmail)
-        // See EMAILJS_SETUP.md for full instructions
+        const EMAIL_METHOD = 'mailphp'; // 'mailphp' | 'formspree' | 'emailjs'
+        const FORMSPREE_ID = 'YOUR_FORMSPREE_ID'; // Replace if using Formspree
+        const MAIL_ENDPOINT = 'https://yourdomain.com/mail.php'; // Update with hosted mail.php URL
+
+        // METHOD 2: EmailJS (unused now; see EMAILJS_SETUP.md if you switch back)
         // const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
         // const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
         // const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
@@ -527,7 +494,26 @@
             };
 
             try {
-                if (EMAIL_METHOD === 'formspree') {
+                if (EMAIL_METHOD === 'mailphp') {
+                    // mail.php METHOD
+                    if (!MAIL_ENDPOINT || MAIL_ENDPOINT.includes('yourdomain.com')) {
+                        throw new Error('Please configure MAIL_ENDPOINT to your hosted mail.php');
+                    }
+
+                    const response = await fetch(MAIL_ENDPOINT, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (!response.ok) {
+                        const errorText = await response.text();
+                        throw new Error(errorText || 'Failed to send message via mail.php');
+                    }
+
+                } else if (EMAIL_METHOD === 'formspree') {
                     // FORMSPREE METHOD
                     if (FORMSPREE_ID === 'YOUR_FORMSPREE_ID') {
                         throw new Error('Please configure Formspree ID in the script (see SETUP.md)');
@@ -546,14 +532,7 @@
                     }
                     
                 } else if (EMAIL_METHOD === 'emailjs') {
-                    // EMAILJS METHOD
-                    // Uncomment the emailjs.init and sendForm lines below after setup
-                    // const response = await emailjs.sendForm(
-                    //     EMAILJS_SERVICE_ID,
-                    //     EMAILJS_TEMPLATE_ID,
-                    //     this
-                    // );
-                    throw new Error('EmailJS not configured. See EMAILJS_SETUP.md');
+                    throw new Error('EmailJS disabled. Switch EMAIL_METHOD to emailjs and configure keys to use.');
                 }
 
                 // Success
