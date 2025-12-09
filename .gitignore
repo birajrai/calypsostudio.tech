@@ -1,0 +1,28 @@
+# OS Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Editor
+.vscode/
+.idea/
+*.code-workspace
+
+# Dependencies
+node_modules/
+
+# Build/Deploy
+dist/
+build/
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Cache
+.cache/
+.parcel-cache/
