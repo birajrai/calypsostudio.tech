@@ -1,4 +1,28 @@
 // ============================================
+// CALYPSO STUDIO - TESTIMONIALS DATA
+// ============================================
+
+const TESTIMONIALS = [
+    {
+        name: "John Miller",
+        role: "E-commerce Owner",
+        text: "Calypso Studio exceeded my expectations! They built a beautiful website that increased my sales by 40%.",
+        rating: 5
+    },
+    {
+        name: "Sarah Anderson",
+        role: "Community Manager",
+        text: "The Discord bot transformed how we manage our community. Highly professional team!",
+        rating: 5
+    },
+    {
+        name: "Michael King",
+        role: "Startup Founder",
+        text: "Amazing logo design! They captured our brand perfectly. Will hire again!",
+        rating: 5
+    }
+];
+// ============================================
 // CALYPSO STUDIO - ABOUT SECTION DATA
 // ============================================
 
