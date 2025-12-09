@@ -1,4 +1,77 @@
 // ============================================
+// CALYPSO STUDIO - ABOUT SECTION DATA
+// ============================================
+
+const ABOUT_CALYPSO = {
+    heading: "About Calypso Studio",
+    paragraphs: [
+        "Calypso Studio is a creative development agency specializing in comprehensive digital solutions. With over 5 years of experience, we've helped numerous businesses establish their digital presence.",
+        "Our team of skilled developers, designers, and strategists work collaboratively to deliver exceptional results across web development, gaming, and design projects."
+    ],
+    stats: [
+        { label: "Projects Done", value: "50+" },
+        { label: "Happy Clients", value: "40+" },
+        { label: "Years Experience", value: "5+" },
+        { label: "Support", value: "24/7" }
+    ],
+    image: "https://placehold.co/500x400/3b82f6/ffffff?text=About+Us"
+};
+// ============================================
+// CALYPSO STUDIO - SERVICES DATABASE
+// ============================================
+
+// Services Array - Manage all services here
+const SERVICES = [
+    {
+        id: 1,
+        title: "Custom Website",
+        description: "Modern, responsive websites built for your business.",
+        icon: "fas fa-globe"
+    },
+    {
+        id: 2,
+        title: "Discord Bots",
+        description: "Custom bots for moderation and community engagement.",
+        icon: "fas fa-robot"
+    },
+    {
+        id: 3,
+        title: "Logo & Design",
+        description: "Creative branding and graphic design services.",
+        icon: "fas fa-palette"
+    },
+    {
+        id: 4,
+        title: "SEO Optimization",
+        description: "Boost your online visibility and rankings.",
+        icon: "fas fa-search"
+    },
+    {
+        id: 5,
+        title: "News Portal",
+        description: "Complete news website setup with CMS.",
+        icon: "fas fa-newspaper"
+    },
+    {
+        id: 6,
+        title: "Minecraft Services",
+        description: "Plugins, texture packs, and server setup.",
+        icon: "fas fa-cube"
+    },
+    {
+        id: 7,
+        title: "Bug Fix & Support",
+        description: "Expert debugging and technical support.",
+        icon: "fas fa-bug"
+    },
+    {
+        id: 8,
+        title: "Technical Consulting",
+        description: "Expert advice for your digital projects.",
+        icon: "fas fa-wrench"
+    }
+];
+// ============================================
 // CALYPSO STUDIO - PROJECTS DATABASE
 // ============================================
 
