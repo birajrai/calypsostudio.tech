@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calypso Studio - Web & Game Development Services</title>
+    <meta name="description" content="Professional web development, Discord bots, logo creation, SEO optimization, news portal, Minecraft plugins, texture packs, and server setup services.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+        }
+        .glow-green {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .service-card {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">CS</span>
+                    </div>
+                    <span class="font-bold text-xl gradient-text">Calypso Studio</span>
+                </div>
+                <div class="hidden md:flex gap-8">
+                    <a href="#services" class="text-gray-700 hover:text-emerald-600 transition">Services</a>
+                    <a href="#portfolio" class="text-gray-700 hover:text-emerald-600 transition">Portfolio</a>
+                    <a href="#about" class="text-gray-700 hover:text-emerald-600 transition">About</a>
+                    <a href="#contact" class="text-gray-700 hover:text-emerald-600 transition">Contact</a>
+                </div>
+                <button class="hidden md:block px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">
+                    Get Started
+                </button>
+                <button class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 bg-gradient-to-br from-gray-50 via-emerald-50 to-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                        <span class="gradient-text">Creative Solutions</span><br>
+                        <span class="text-gray-900">For Your Digital Presence</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Calypso Studio specializes in web development, Discord bots, graphic design, SEO optimization, and Minecraft solutions. Let's transform your vision into reality.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="px-8 py-4 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition transform hover:scale-105">
+                            Start Your Project
+                        </button>
+                        <button class="px-8 py-4 border-2 border-emerald-600 text-emerald-600 rounded-lg font-semibold hover:bg-emerald-50 transition">
+                            View Our Work
+                        </button>
+                    </div>
+                    <div class="mt-12 flex gap-8">
+                        <div>
+                            <p class="text-3xl font-bold text-emerald-600">50+</p>
+                            <p class="text-gray-600">Projects Completed</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-emerald-600">40+</p>
+                            <p class="text-gray-600">Happy Clients</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-emerald-600">5+</p>
+                            <p class="text-gray-600">Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-emerald-400 to-green-500 rounded-3xl transform rotate-6"></div>
+                    <div class="relative bg-white rounded-3xl p-8 shadow-2xl">
+                        <div class="aspect-square bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-code text-6xl mb-4"></i>
+                                <p class="text-xl font-semibold">Full Stack Development</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="gradient-text">Our Services</span>
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Comprehensive solutions tailored to your needs, from web development to gaming ecosystems.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card hover-lift p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-globe text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Custom Website</h3>
+                    <p class="text-gray-600 mb-4">Responsive, modern websites built with the latest technologies.</p>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Responsive Design</li>
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>SEO Optimized</li>
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Fast Loading</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="service-card hover-lift p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-robot text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Discord Bots</h3>
+                    <p class="text-gray-600 mb-4">Custom Discord bots for moderation, fun, and community engagement.</p>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Custom Commands</li>
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>24/7 Support</li>
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Advanced Features</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="service-card hover-lift p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-palette text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Logo & Design</h3>
+                    <p class="text-gray-600 mb-4">Creative branding and graphic design services for your business.</p>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Logo Design</li>
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Brand Identity</li>
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>UI/UX Design</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="service-card hover-lift p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-search text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">SEO Optimization</h3>
+                    <p class="text-gray-600 mb-4">Boost your online visibility with our comprehensive SEO services.</p>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Keyword Research</li>
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>On-page SEO</li>
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Analytics Tracking</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="service-card hover-lift p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-newspaper text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">News Portal</h3>
+                    <p class="text-gray-600 mb-4">Complete news website setup with CMS and content management.</p>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>CMS Integration</li>
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>User Dashboard</li>
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Social Sharing</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="service-card hover-lift p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-cube text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Minecraft Services</h3>
+                    <p class="text-gray-600 mb-4">Plugins, texture packs, server setup, and debugging solutions.</p>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Plugin Development</li>
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Server Setup</li>
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Texture Packs</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 7 -->
+                <div class="service-card hover-lift p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-bug text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Bug Fix & Support</h3>
+                    <p class="text-gray-600 mb-4">Expert debugging and technical support for your projects.</p>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Quick Turnaround</li>
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Code Review</li>
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Maintenance</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 8 -->
+                <div class="service-card hover-lift p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-wrench text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Technical Consulting</h3>
+                    <p class="text-gray-600 mb-4">Expert advice and strategy for your digital projects.</p>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Tech Stack Selection</li>
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Architecture Design</li>
+                        <li><i class="fas fa-check text-emerald-600 mr-2"></i>Best Practices</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="gradient-text">Recent Projects</span>
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Showcase of our latest work across web development, gaming, and design.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="group relative overflow-hidden rounded-2xl hover-lift">
+                    <div class="aspect-video bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-globe text-5xl mb-3"></i>
+                            <p class="text-lg font-semibold">E-Commerce Platform</p>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <p class="font-semibold mb-2">E-Commerce Platform</p>
+                            <p class="text-sm mb-4">Full-stack web development</p>
+                            <button class="px-4 py-2 bg-emerald-600 rounded-lg hover:bg-emerald-700 transition">View Project</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 2 -->
+                <div class="group relative overflow-hidden rounded-2xl hover-lift">
+                    <div class="aspect-video bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-robot text-5xl mb-3"></i>
+                            <p class="text-lg font-semibold">Discord Bot</p>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <p class="font-semibold mb-2">Custom Discord Bot</p>
+                            <p class="text-sm mb-4">Moderation & Community Tools</p>
+                            <button class="px-4 py-2 bg-emerald-600 rounded-lg hover:bg-emerald-700 transition">View Project</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 3 -->
+                <div class="group relative overflow-hidden rounded-2xl hover-lift">
+                    <div class="aspect-video bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-palette text-5xl mb-3"></i>
+                            <p class="text-lg font-semibold">Brand Identity</p>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <p class="font-semibold mb-2">Brand Identity Design</p>
+                            <p class="text-sm mb-4">Logo & Visual Design</p>
+                            <button class="px-4 py-2 bg-emerald-600 rounded-lg hover:bg-emerald-700 transition">View Project</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 4 -->
+                <div class="group relative overflow-hidden rounded-2xl hover-lift">
+                    <div class="aspect-video bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-newspaper text-5xl mb-3"></i>
+                            <p class="text-lg font-semibold">News Website</p>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <p class="font-semibold mb-2">News Portal</p>
+                            <p class="text-sm mb-4">Content Management System</p>
+                            <button class="px-4 py-2 bg-emerald-600 rounded-lg hover:bg-emerald-700 transition">View Project</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 5 -->
+                <div class="group relative overflow-hidden rounded-2xl hover-lift">
+                    <div class="aspect-video bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-cube text-5xl mb-3"></i>
+                            <p class="text-lg font-semibold">Minecraft Server</p>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <p class="font-semibold mb-2">Minecraft Server Setup</p>
+                            <p class="text-sm mb-4">Plugins & Customization</p>
+                            <button class="px-4 py-2 bg-emerald-600 rounded-lg hover:bg-emerald-700 transition">View Project</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 6 -->
+                <div class="group relative overflow-hidden rounded-2xl hover-lift">
+                    <div class="aspect-video bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search text-5xl mb-3"></i>
+                            <p class="text-lg font-semibold">SEO Campaign</p>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <p class="font-semibold mb-2">SEO Optimization</p>
+                            <p class="text-sm mb-4">Ranking & Visibility Boost</p>
+                            <button class="px-4 py-2 bg-emerald-600 rounded-lg hover:bg-emerald-700 transition">View Project</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        <span class="gradient-text">About Calypso Studio</span>
+                    </h2>
+                    <p class="text-gray-600 text-lg mb-4 leading-relaxed">
+                        Calypso Studio is a creative development agency specializing in comprehensive digital solutions. With over 5 years of experience, we've helped numerous businesses and individuals establish their digital presence.
+                    </p>
+                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                        Our team of skilled developers, designers, and strategists work collaboratively to deliver exceptional results. From web development to gaming ecosystems, we bring expertise and creativity to every project.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-emerald-50 p-6 rounded-xl">
+                            <p class="text-3xl font-bold text-emerald-600 mb-2">50+</p>
+                            <p class="text-gray-700">Projects Delivered</p>
+                        </div>
+                        <div class="bg-emerald-50 p-6 rounded-xl">
+                            <p class="text-3xl font-bold text-emerald-600 mb-2">40+</p>
+                            <p class="text-gray-700">Satisfied Clients</p>
+                        </div>
+                        <div class="bg-emerald-50 p-6 rounded-xl">
+                            <p class="text-3xl font-bold text-emerald-600 mb-2">100%</p>
+                            <p class="text-gray-700">Satisfaction Rate</p>
+                        </div>
+                        <div class="bg-emerald-50 p-6 rounded-xl">
+                            <p class="text-3xl font-bold text-emerald-600 mb-2">24/7</p>
+                            <p class="text-gray-700">Support Available</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-400 to-green-500 rounded-3xl transform -rotate-3"></div>
+                    <div class="relative bg-white rounded-3xl p-8 shadow-2xl">
+                        <div class="bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl aspect-square flex flex-col items-center justify-center text-white p-8">
+                            <i class="fas fa-star text-6xl mb-4"></i>
+                            <p class="text-center text-lg font-semibold">Excellence in Every Project</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="gradient-text">What Our Clients Say</span>
+                </h2>
+                <p class="text-gray-600 text-lg">
+                    Don't just take our word for it - hear from our satisfied clients.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-2xl hover-lift shadow-sm">
+                    <div class="flex gap-1 mb-4">
+                        <i class="fas fa-star text-emerald-600"></i>
+                        <i class="fas fa-star text-emerald-600"></i>
+                        <i class="fas fa-star text-emerald-600"></i>
+                        <i class="fas fa-star text-emerald-600"></i>
+                        <i class="fas fa-star text-emerald-600"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "Calypso Studio exceeded all my expectations! They built a beautiful website that increased my online sales by 40%."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold">
+                            JM
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">John Miller</p>
+                            <p class="text-sm text-gray-600">E-commerce Owner</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-2xl hover-lift shadow-sm">
+                    <div class="flex gap-1 mb-4">
+                        <i class="fas fa-star text-emerald-600"></i>
+                        <i class="fas fa-star text-emerald-600"></i>
+                        <i class="fas fa-star text-emerald-600"></i>
+                        <i class="fas fa-star text-emerald-600"></i>
+                        <i class="fas fa-star text-emerald-600"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "The Discord bot they created transformed how we manage our community. Highly professional and responsive team!"
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold">
+                            SA
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">Sarah Anderson</p>
+                            <p class="text-sm text-gray-600">Community Manager</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-2xl hover-lift shadow-sm">
+                    <div class="flex gap-1 mb-4">
+                        <i class="fas fa-star text-emerald-600"></i>
+                        <i class="fas fa-star text-emerald-600"></i>
+                        <i class="fas fa-star text-emerald-600"></i>
+                        <i class="fas fa-star text-emerald-600"></i>
+                        <i class="fas fa-star text-emerald-600"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "Amazing logo design and branding work! They perfectly captured our brand vision. Will definitely hire again."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold">
+                            MK
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">Michael King</p>
+                            <p class="text-sm text-gray-600">Startup Founder</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 bg-gradient-to-r from-emerald-600 to-green-700">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Transform Your Digital Presence?
+            </h2>
+            <p class="text-xl text-emerald-100 mb-8 leading-relaxed">
+                Let's work together to bring your vision to life. Contact us today for a free consultation.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="px-8 py-4 bg-white text-emerald-600 rounded-lg font-semibold hover:bg-emerald-50 transition transform hover:scale-105">
+                    Get Free Consultation
+                </button>
+                <button class="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition">
+                    View Pricing Plans
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="gradient-text">Get In Touch</span>
+                </h2>
+                <p class="text-gray-600 text-lg">
+                    Have a project in mind? Let's discuss how we can help.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-gray-50 p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Send us a Message</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Name</label>
+                            <input type="text" placeholder="Your Name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-emerald-600">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Email</label>
+                            <input type="email" placeholder="your@email.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-emerald-600">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Subject</label>
+                            <input type="text" placeholder="Project Details" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-emerald-600">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Message</label>
+                            <textarea placeholder="Tell us about your project..." rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-emerald-600"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900 mb-2">Location</h4>
+                            <p class="text-gray-600">Available Worldwide<br>Remote Services</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-phone text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900 mb-2">Phone</h4>
+                            <p class="text-gray-600">+1 (555) 123-4567<br>Available Mon-Fri, 9AM-6PM</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-envelope text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900 mb-2">Email</h4>
+                            <p class="text-gray-600">info@calypsostudio.tech<br>support@calypsostudio.tech</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-clock text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900 mb-2">Response Time</h4>
+                            <p class="text-gray-600">Usually within 24 hours<br>24/7 Emergency Support</p>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="pt-8 border-t border-gray-200">
+                        <h4 class="font-semibold text-gray-900 mb-4">Follow Us</h4>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center text-white hover:bg-emerald-700 transition">
+                                <i class="fab fa-discord"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center text-white hover:bg-emerald-700 transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center text-white hover:bg-emerald-700 transition">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center text-white hover:bg-emerald-700 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold">CS</span>
+                        </div>
+                        <span class="font-bold text-lg text-white">Calypso Studio</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        Your partner in digital transformation and creative excellence.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-emerald-400 transition">Web Development</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition">Discord Bots</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition">Design Services</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition">SEO Optimization</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-emerald-400 transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition">Portfolio</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-emerald-400 transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition">Cookie Policy</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-400">
+                    &copy; 2025 Calypso Studio. All rights reserved.
+                </p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-emerald-400 transition"><i class="fab fa-discord text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-emerald-400 transition"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-emerald-400 transition"><i class="fab fa-github text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-emerald-400 transition"><i class="fab fa-instagram text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation to elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.hover-lift').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
