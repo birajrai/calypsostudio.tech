@@ -1,4 +1,27 @@
 // ============================================
+// CALYPSO STUDIO - GLOBAL CONFIGURATION
+// ============================================
+
+const SITE_CONFIG = {
+    siteName: "Calypso Studio",
+    logo: "assets/logo.png",
+    primaryColor: "#3b82f6",
+    secondaryColor: "#6366f1",
+    accentColor: "#f59e42",
+    backgroundColor: "#f8fafc",
+    fontFamily: "'Inter', sans-serif",
+    heroHeading: "Creative Digital Solutions",
+    heroSubheading: "Web, Design, Gaming & More",
+    heroImage: "https://placehold.co/600x400/3b82f6/ffffff?text=Hero+Image",
+    contactEmail: "hello@calypsostudio.tech",
+    socialLinks: {
+        twitter: "https://twitter.com/calypsostudio",
+        discord: "https://discord.gg/example",
+        github: "https://github.com/birajrai/calypsostudio.tech"
+    }
+};
+
+// ============================================
 // CALYPSO STUDIO - TESTIMONIALS DATA
 // ============================================
 
@@ -27,9 +50,9 @@ const TESTIMONIALS = [
 // ============================================
 
 const ABOUT_CALYPSO = {
-    heading: "About Calypso Studio",
+    heading: `About ${SITE_CONFIG.siteName}`,
     paragraphs: [
-        "Calypso Studio is a creative development agency specializing in comprehensive digital solutions. With over 5 years of experience, we've helped numerous businesses establish their digital presence.",
+        `${SITE_CONFIG.siteName} is a creative development agency specializing in comprehensive digital solutions. With over 5 years of experience, we've helped numerous businesses establish their digital presence.`,
         "Our team of skilled developers, designers, and strategists work collaboratively to deliver exceptional results across web development, gaming, and design projects."
     ],
     stats: [
@@ -38,7 +61,7 @@ const ABOUT_CALYPSO = {
         { label: "Years Experience", value: "5+" },
         { label: "Support", value: "24/7" }
     ],
-    image: "https://placehold.co/500x400/3b82f6/ffffff?text=About+Us"
+    image: SITE_CONFIG.heroImage
 };
 // ============================================
 // CALYPSO STUDIO - SERVICES DATABASE
@@ -298,6 +321,10 @@ function searchProjects(query) {
 // Export for use in other scripts or as module
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
+        SITE_CONFIG,
+        TESTIMONIALS,
+        ABOUT_CALYPSO,
+        SERVICES,
         PROJECTS,
         getAllProjects,
         getProjectById,
@@ -311,5 +338,241 @@ if (typeof module !== 'undefined' && module.exports) {
     };
 }
 
+
+// =============================
+// RENDERING FUNCTIONS
+// =============================
+
+function renderNavigation() {
+    const nav = document.getElementById('nav-container');
+    if (!nav) return;
+    nav.innerHTML = `
+    <div class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="flex items-center gap-2 hover:opacity-80 transition">
+                    <img src="${SITE_CONFIG.logo}" alt="${SITE_CONFIG.siteName} Logo" class="h-10 w-auto rounded-lg">
+                </a>
+                <div class="hidden md:flex gap-8">
+                    <a href="#services-container" class="text-gray-700 hover:text-blue-600 transition text-sm">Services</a>
+                    <a href="#projects-container" class="text-gray-700 hover:text-blue-600 transition text-sm">Projects</a>
+                    <a href="#about-container" class="text-gray-700 hover:text-blue-600 transition text-sm">About</a>
+                    <a href="#footer-container" class="text-gray-700 hover:text-blue-600 transition text-sm">Contact</a>
+                </div>
+                <a href="#footer-container" class="hidden md:block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-medium">
+                    Get Started
+                </a>
+                <button class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    `;
+}
+
+function renderHero() {
+    const hero = document.getElementById('hero-container');
+    if (!hero) return;
+    hero.innerHTML = `
+    <section class="pt-32 pb-16 px-4 bg-gradient-to-b from-blue-50 to-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-4 text-gray-900">
+                        ${SITE_CONFIG.heroHeading}<br>
+                        <span class="gradient-text">${SITE_CONFIG.heroSubheading}</span>
+                    </h1>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button class="px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition" onclick="document.getElementById('footer-container').scrollIntoView({behavior: 'smooth'})">
+                            Start Your Project
+                        </button>
+                        <button class="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition" onclick="document.getElementById('projects-container').scrollIntoView({behavior: 'smooth'})">
+                            View Our Work
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <img src="${SITE_CONFIG.heroImage}" alt="${SITE_CONFIG.heroHeading}" class="w-full rounded-2xl shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+    `;
+}
+
+function renderServices() {
+    const servicesSection = document.getElementById('services-container');
+    if (!servicesSection) return;
+    servicesSection.innerHTML = `
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-2">Our Services</h2>
+                <p class="text-gray-600">Comprehensive solutions for your digital needs</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                ${SERVICES.map(service => `
+                    <div class="bg-white rounded-xl overflow-hidden border border-gray-200 hover-lift p-6 flex flex-col items-center text-center">
+                        <i class="${service.icon} text-3xl text-blue-600 mb-4"></i>
+                        <h3 class="font-bold text-gray-900 mb-2">${service.title}</h3>
+                        <p class="text-sm text-gray-600 mb-3">${service.description}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    </section>
+    `;
+}
+
+function renderProjects(containerId = 'projects-container', projects = null) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = `
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-2">Recent Projects</h2>
+                <p class="text-gray-600">Showcase of our latest work</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                ${(projects || PROJECTS).map(project => `
+                    <div class="bg-white rounded-xl overflow-hidden border border-gray-200 hover-lift">
+                        <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-bold text-gray-900 mb-2">${project.title}</h3>
+                            <p class="text-sm text-gray-600 mb-3">${project.description}</p>
+                            <div class="flex flex-wrap gap-1 mb-4">
+                                ${project.tags.map(tag => `<span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">${tag}</span>`).join('')}
+                            </div>
+                            <a href="${project.demoLink}" target="_blank" rel="noopener noreferrer" class="text-sm text-blue-600 hover:text-blue-700 font-medium">View Demo →</a>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    </section>
+    `;
+}
+
+function renderAbout() {
+    const aboutSection = document.getElementById('about-container');
+    if (!aboutSection) return;
+    aboutSection.innerHTML = `
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">${ABOUT_CALYPSO.heading}</h2>
+                    ${ABOUT_CALYPSO.paragraphs.map(p => `<p class="text-gray-600 mb-4 leading-relaxed">${p}</p>`).join('')}
+                    <div class="grid grid-cols-2 gap-4">
+                        ${ABOUT_CALYPSO.stats.map(stat => `
+                            <div>
+                                <p class="text-3xl font-bold text-blue-600">${stat.value}</p>
+                                <p class="text-sm text-gray-600">${stat.label}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                <div>
+                    <img src="${ABOUT_CALYPSO.image}" alt="About Us" class="w-full rounded-2xl shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+    `;
+}
+
+function renderTestimonials() {
+    const testimonialsSection = document.getElementById('testimonials-container');
+    if (!testimonialsSection) return;
+    testimonialsSection.innerHTML = `
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-2">What Clients Say</h2>
+                <p class="text-gray-600">Feedback from our satisfied customers</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                ${TESTIMONIALS.map(t => `
+                    <div class="bg-white p-6 rounded-xl border border-gray-200">
+                        <div class="flex gap-1 mb-4">
+                            ${'<i class="fas fa-star text-blue-600 text-sm"></i>'.repeat(t.rating)}
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">"${t.text}"</p>
+                        <p class="font-semibold text-gray-900 text-sm">${t.name}</p>
+                        <p class="text-xs text-gray-500">${t.role}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    </section>
+    `;
+}
+
+function renderFooter() {
+    const footer = document.getElementById('footer-container');
+    if (!footer) return;
+    footer.innerHTML = `
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <img src="${SITE_CONFIG.logo}" alt="${SITE_CONFIG.siteName} Logo" class="h-10 w-auto rounded-lg">
+                        <span class="font-bold text-white">${SITE_CONFIG.siteName}</span>
+                    </div>
+                    <p class="text-xs text-gray-400">Your partner in digital transformation and creative excellence.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-3 text-sm">Services</h4>
+                    <ul class="space-y-2 text-xs">
+                        ${SERVICES.map(s => `<li><a href="#services-container" class="hover:text-blue-400 transition">${s.title}</a></li>`).join('')}
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-3 text-sm">Company</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#about-container" class="hover:text-blue-400 transition">About Us</a></li>
+                        <li><a href="#projects-container" class="hover:text-blue-400 transition">Portfolio</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Blog</a></li>
+                        <li><a href="#footer-container" class="hover:text-blue-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-3 text-sm">Legal</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#" class="hover:text-blue-400 transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
+                <p class="text-gray-400">&copy; 2025 ${SITE_CONFIG.siteName}. All rights reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="${SITE_CONFIG.socialLinks.discord}" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-discord"></i></a>
+                    <a href="${SITE_CONFIG.socialLinks.twitter}" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-twitter"></i></a>
+                    <a href="${SITE_CONFIG.socialLinks.github}" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    `;
+}
+
+// =============================
+// INITIALIZE ALL SECTIONS
+// =============================
+document.addEventListener('DOMContentLoaded', function() {
+    renderNavigation();
+    renderHero();
+    renderServices();
+    renderProjects('projects-container');
+    renderAbout();
+    renderTestimonials();
+    renderFooter();
+});
+
 // Console logging for debugging
-console.log('Calypso Studio Projects Loaded:', PROJECTS.length, 'projects');
+console.log(`${SITE_CONFIG.siteName} Projects Loaded:`, PROJECTS.length, 'projects');
