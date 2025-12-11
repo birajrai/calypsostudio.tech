@@ -63,6 +63,8 @@ const ABOUT_CALYPSO = {
     ],
     image: SITE_CONFIG.heroImage
 };
+// Source text for Monkeytype-style typing in About section
+const ABOUT_TYPING_TEXT = ABOUT_CALYPSO.paragraphs.join(' ');
 // ============================================
 // CALYPSO STUDIO - SERVICES DATABASE
 // ============================================
@@ -464,7 +466,11 @@ function renderAbout() {
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div>
                     <h2 class="text-4xl font-bold text-gray-900 mb-4">${ABOUT_CALYPSO.heading}</h2>
-                    ${ABOUT_CALYPSO.paragraphs.map(p => `<p class="text-gray-600 mb-4 leading-relaxed">${p}</p>`).join('')}
+                    <div id="about-typing-box" tabindex="0" class="outline-none">
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            <span id="about-typing-line" class="whitespace-pre-wrap"></span>
+                        </p>
+                    </div>
                     <div class="grid grid-cols-2 gap-4">
                         ${ABOUT_CALYPSO.stats.map(stat => `
                             <div>
@@ -570,9 +576,66 @@ document.addEventListener('DOMContentLoaded', function() {
     renderServices();
     renderProjects('projects-container');
     renderAbout();
+    // Initialize Monkeytype-style typing after About renders
+    initAboutTyping();
     renderTestimonials();
     renderFooter();
 });
 
 // Console logging for debugging
 console.log(`${SITE_CONFIG.siteName} Projects Loaded:`, PROJECTS.length, 'projects');
+
+function initAboutTyping() {
+    const box = document.getElementById('about-typing-box');
+    const lineEl = document.getElementById('about-typing-line');
+    if (!box || !lineEl) return;
+
+    // Render each character as a span for persistent correct/incorrect highlighting
+    const chars = ABOUT_TYPING_TEXT.split('');
+    const spans = chars.map(ch => {
+        const s = document.createElement('span');
+        s.textContent = ch;
+        return s;
+    });
+    lineEl.innerHTML = '';
+    spans.forEach(s => lineEl.appendChild(s));
+
+    let index = 0;
+
+    box.addEventListener('keydown', function (e) {
+        const nextChar = chars[index];
+
+        if (e.key === 'Backspace') {
+            if (index > 0) {
+                index--;
+                spans[index].classList.remove('text-blue-600', 'text-red-600');
+            }
+            e.preventDefault();
+            return;
+        }
+
+        if (!nextChar) return; // ignore if at end
+
+        if (e.key === ' ') {
+            if (nextChar === ' ') {
+                spans[index].classList.add('text-blue-600');
+            } else {
+                spans[index].classList.add('text-red-600');
+            }
+            index++;
+            e.preventDefault();
+            return;
+        }
+
+        if (e.key && e.key.length === 1) {
+            if (e.key === nextChar) {
+                spans[index].classList.add('text-blue-600');
+            } else {
+                spans[index].classList.add('text-red-600');
+            }
+            index++;
+        }
+    });
+
+    // No auto-focus to avoid jumping on load
+}
