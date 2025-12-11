@@ -345,6 +345,15 @@ if (typeof module !== 'undefined' && module.exports) {
 // RENDERING FUNCTIONS
 // =============================
 
+// CALYPSO STUDIO - TEAM DATA
+const TEAM = [
+    { name: "Nabaraj Rai", role: "Lead Designer", image: "https://placehold.co/200x200/3b82f6/ffffff?text=NR", github: "#", facebook: "#", website: "#" },
+    { name: "Gaurav Uchil", role: "Lead Developer", image: "https://placehold.co/200x200/6366f1/ffffff?text=GU", github: "#", facebook: "#", website: "#" },
+    { name: "Biraj Rai", role: "DevOps & Developer", image: "https://placehold.co/200x200/3b82f6/ffffff?text=BR", github: "#", facebook: "#", website: "#" },
+    { name: "Samita Rai", role: "Project Manager", image: "https://placehold.co/200x200/6366f1/ffffff?text=SR", github: "#", facebook: "#", website: "#" },
+    { name: "Sudarshan Gautam", role: "SEO Specialist", image: "https://placehold.co/200x200/3b82f6/ffffff?text=SG", github: "#", facebook: "#", website: "#" },
+    { name: "You?", role: "???", image: "https://placehold.co/200x200/6366f1/ffffff?text=YOU", github: "#", facebook: "#", website: "#" },
+];
 function renderNavigation() {
     const nav = document.getElementById('nav-container');
     if (!nav) return;
@@ -358,6 +367,7 @@ function renderNavigation() {
                 <div class="hidden md:flex gap-8">
                     <a href="#services-container" class="text-gray-700 hover:text-blue-600 transition text-sm">Services</a>
                     <a href="#projects-container" class="text-gray-700 hover:text-blue-600 transition text-sm">Projects</a>
+                    <a href="#team-container" class="text-gray-700 hover:text-blue-600 transition text-sm">Team</a>
                     <a href="#about-container" class="text-gray-700 hover:text-blue-600 transition text-sm">About</a>
                     <a href="#footer-container" class="text-gray-700 hover:text-blue-600 transition text-sm">Contact</a>
                 </div>
@@ -419,6 +429,35 @@ function renderServices() {
                         <i class="${service.icon} text-3xl text-blue-600 mb-4"></i>
                         <h3 class="font-bold text-gray-900 mb-2">${service.title}</h3>
                         <p class="text-sm text-gray-600 mb-3">${service.description}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    </section>
+    `;
+}
+
+function renderTeam() {
+    const teamSection = document.getElementById('team-container');
+    if (!teamSection) return;
+    teamSection.innerHTML = `
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-2">Our Team</h2>
+                <p class="text-gray-600">Meet the people behind ${SITE_CONFIG.siteName}</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                ${TEAM.map(m => `
+                    <div class="bg-white rounded-xl overflow-hidden border border-gray-200 hover-lift p-6 flex flex-col items-center text-center">
+                        <img src="${m.image}" alt="${m.name}" class="w-24 h-24 rounded-full object-cover mb-4">
+                        <h3 class="font-bold text-gray-900 mb-1">${m.name}</h3>
+                        <p class="text-sm text-gray-600">${m.role}</p>
+                        <div class="flex gap-4 mt-3">
+                            ${m.github ? `<a href="${m.github}" target="_blank" rel="noopener noreferrer" aria-label="${m.name} GitHub" class="text-gray-500 hover:text-gray-900 transition"><i class="fab fa-github text-lg"></i></a>` : ''}
+                            ${m.facebook ? `<a href="${m.facebook}" target="_blank" rel="noopener noreferrer" aria-label="${m.name} Facebook" class="text-gray-500 hover:text-blue-600 transition"><i class="fab fa-facebook text-lg"></i></a>` : ''}
+                            ${m.website ? `<a href="${m.website}" target="_blank" rel="noopener noreferrer" aria-label="${m.name} Website" class="text-gray-500 hover:text-blue-600 transition"><i class="fas fa-globe text-lg"></i></a>` : ''}
+                        </div>
                     </div>
                 `).join('')}
             </div>
@@ -578,6 +617,7 @@ document.addEventListener('DOMContentLoaded', function() {
     renderAbout();
     // Initialize Monkeytype-style typing after About renders
     initAboutTyping();
+    renderTeam();
     renderTestimonials();
     renderFooter();
 });
