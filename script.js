@@ -376,10 +376,32 @@ function renderNavigation() {
                 <a href="#contact-container" class="hidden md:block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-medium">
                     Get Started
                 </a>
-                <button class="md:hidden text-gray-700">
+                <button id="mobile-nav-open" class="md:hidden text-gray-700" aria-label="Open navigation">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
+        </div>
+    </div>
+
+    <!-- Mobile off-canvas nav -->
+    <div id="mobile-nav-overlay" class="fixed inset-0 bg-black/50 z-40 opacity-0 pointer-events-none transition-opacity"></div>
+    <div id="mobile-nav-panel" class="fixed top-0 left-0 h-full w-72 bg-white shadow-2xl z-50 -translate-x-full transition-transform duration-300">
+        <div class="flex items-center justify-between h-16 px-4 border-b border-gray-100">
+            <div class="flex items-center gap-2">
+                <img src="${SITE_CONFIG.logo}" alt="${SITE_CONFIG.siteName} Logo" class="h-10 w-auto rounded-lg">
+                <span class="font-semibold text-gray-900">${SITE_CONFIG.siteName}</span>
+            </div>
+            <button id="mobile-nav-close" class="text-gray-600" aria-label="Close navigation">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+        </div>
+        <div class="flex flex-col gap-4 px-4 py-6 text-gray-800">
+            <a href="#services-container" class="hover:text-blue-600" onclick="closeMobileNav()">Services</a>
+            <a href="#projects-container" class="hover:text-blue-600" onclick="closeMobileNav()">Projects</a>
+            <a href="#team-container" class="hover:text-blue-600" onclick="closeMobileNav()">Team</a>
+            <a href="#about-container" class="hover:text-blue-600" onclick="closeMobileNav()">About</a>
+            <a href="#contact-container" class="hover:text-blue-600" onclick="closeMobileNav()">Contact</a>
+            <a href="#contact-container" class="mt-2 px-4 py-3 bg-blue-600 text-white rounded-lg text-center" onclick="closeMobileNav()">Get Started</a>
         </div>
     </div>
     `;
@@ -561,49 +583,26 @@ function renderFooter() {
     const footer = document.getElementById('footer-container');
     if (!footer) return;
     footer.innerHTML = `
-    <footer class="bg-gray-900 text-gray-300 py-12 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
+    <footer class="bg-gray-900 text-gray-200 py-10 px-4">
+        <div class="max-w-5xl mx-auto flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center gap-3">
+                <img src="${SITE_CONFIG.logo}" alt="${SITE_CONFIG.siteName} Logo" class="h-10 w-auto rounded-lg">
                 <div>
-                    <div class="flex items-center gap-2 mb-3">
-                        <img src="${SITE_CONFIG.logo}" alt="${SITE_CONFIG.siteName} Logo" class="h-10 w-auto rounded-lg">
-                        <span class="font-bold text-white">${SITE_CONFIG.siteName}</span>
-                    </div>
-                    <p class="text-xs text-gray-400">Your partner in digital transformation and creative excellence.</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-white mb-3 text-sm">Services</h4>
-                    <ul class="space-y-2 text-xs">
-                        ${SERVICES.map(s => `<li><a href="#services-container" class="hover:text-blue-400 transition">${s.title}</a></li>`).join('')}
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-white mb-3 text-sm">Company</h4>
-                    <ul class="space-y-2 text-xs">
-                        <li><a href="#about-container" class="hover:text-blue-400 transition">About Us</a></li>
-                        <li><a href="#projects-container" class="hover:text-blue-400 transition">Portfolio</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition">Blog</a></li>
-                        <li><a href="#footer-container" class="hover:text-blue-400 transition">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-white mb-3 text-sm">Legal</h4>
-                    <ul class="space-y-2 text-xs">
-                        <li><a href="#" class="hover:text-blue-400 transition">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition">Terms of Service</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition">Cookie Policy</a></li>
-                    </ul>
+                    <p class="text-white font-semibold">${SITE_CONFIG.siteName}</p>
+                    <p class="text-xs text-gray-400">Digital products, design, and support.</p>
                 </div>
             </div>
-            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
-                <p class="text-gray-400">&copy; 2025 ${SITE_CONFIG.siteName}. All rights reserved.</p>
-                <div class="flex gap-4 mt-4 md:mt-0">
-                    <a href="${SITE_CONFIG.socialLinks.discord}" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-discord"></i></a>
-                    <a href="${SITE_CONFIG.socialLinks.twitter}" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-twitter"></i></a>
-                    <a href="${SITE_CONFIG.socialLinks.github}" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-github"></i></a>
-                </div>
+            <div class="flex flex-col gap-2 text-sm text-gray-300">
+                <a href="mailto:${SITE_CONFIG.contactEmail}" class="hover:text-white">${SITE_CONFIG.contactEmail}</a>
+                <a href="tel:${SITE_CONFIG.contactPhone.replace(/[^+\d]/g, '')}" class="hover:text-white">${SITE_CONFIG.contactPhone}</a>
+            </div>
+            <div class="flex gap-4 text-lg text-gray-300">
+                <a href="${SITE_CONFIG.socialLinks.discord}" class="hover:text-white" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="${SITE_CONFIG.socialLinks.twitter}" class="hover:text-white" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="${SITE_CONFIG.socialLinks.github}" class="hover:text-white" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
         </div>
+        <div class="max-w-5xl mx-auto mt-6 border-t border-gray-800 pt-4 text-xs text-gray-500">&copy; 2025 ${SITE_CONFIG.siteName}. All rights reserved.</div>
     </footer>
     `;
 }
@@ -623,7 +622,39 @@ document.addEventListener('DOMContentLoaded', function() {
     renderTestimonials();
     renderContact();
     renderFooter();
+
+    // Mobile nav wiring
+    const openBtn = document.getElementById('mobile-nav-open');
+    const closeBtn = document.getElementById('mobile-nav-close');
+    const overlay = document.getElementById('mobile-nav-overlay');
+    const panel = document.getElementById('mobile-nav-panel');
+    if (openBtn && closeBtn && overlay && panel) {
+        openBtn.addEventListener('click', openMobileNav);
+        closeBtn.addEventListener('click', closeMobileNav);
+        overlay.addEventListener('click', closeMobileNav);
+    }
 });
+
+// Mobile nav controls
+function openMobileNav() {
+    const overlay = document.getElementById('mobile-nav-overlay');
+    const panel = document.getElementById('mobile-nav-panel');
+    if (!overlay || !panel) return;
+    overlay.classList.remove('pointer-events-none', 'opacity-0');
+    overlay.classList.add('opacity-100');
+    panel.classList.remove('-translate-x-full');
+    document.body.classList.add('overflow-hidden');
+}
+
+function closeMobileNav() {
+    const overlay = document.getElementById('mobile-nav-overlay');
+    const panel = document.getElementById('mobile-nav-panel');
+    if (!overlay || !panel) return;
+    overlay.classList.add('pointer-events-none', 'opacity-0');
+    overlay.classList.remove('opacity-100');
+    panel.classList.add('-translate-x-full');
+    document.body.classList.remove('overflow-hidden');
+}
 
 // Console logging for debugging
 console.log(`${SITE_CONFIG.siteName} Projects Loaded:`, PROJECTS.length, 'projects');
