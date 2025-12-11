@@ -594,7 +594,6 @@ function renderFooter() {
             </div>
             <div class="flex flex-col gap-2 text-sm text-gray-300">
                 <a href="mailto:${SITE_CONFIG.contactEmail}" class="hover:text-white">${SITE_CONFIG.contactEmail}</a>
-                <a href="tel:${SITE_CONFIG.contactPhone.replace(/[^+\d]/g, '')}" class="hover:text-white">${SITE_CONFIG.contactPhone}</a>
             </div>
             <div class="flex gap-4 text-lg text-gray-300">
                 <a href="${SITE_CONFIG.socialLinks.discord}" class="hover:text-white" aria-label="Discord"><i class="fab fa-discord"></i></a>
