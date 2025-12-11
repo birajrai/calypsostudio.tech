@@ -12,7 +12,7 @@ const SITE_CONFIG = {
     fontFamily: "'Inter', sans-serif",
     heroHeading: "Creative Digital Solutions",
     heroSubheading: "Web, Design, Gaming & More",
-    heroImage: "https://placehold.co/600x400/3b82f6/ffffff?text=Hero+Image",
+    heroImage: "assets/hero-image.jpg",
     contactEmail: "info@calypsostudio.tech",
     contactPhone: "+977 9745690471",
     contactWhatsApp: "+977 9745690471",
