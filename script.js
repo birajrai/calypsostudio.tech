@@ -17,7 +17,6 @@ const SITE_CONFIG = {
     contactPhone: "+977 9745690471",
     contactWhatsApp: "+977 9745690471",
     socialLinks: {
-        twitter: "https://twitter.com/calypsostudio",
         discord: "https://discord.gg/T4ty9EBU3S",
         github: "https://github.com/calypsostudio"
     }
@@ -592,16 +591,12 @@ function renderFooter() {
                     <p class="text-xs text-gray-400">Digital products, design, and support.</p>
                 </div>
             </div>
-            <div class="flex flex-col gap-2 text-sm text-gray-300">
-                <a href="mailto:${SITE_CONFIG.contactEmail}" class="hover:text-white">${SITE_CONFIG.contactEmail}</a>
-            </div>
             <div class="flex gap-4 text-lg text-gray-300">
                 <a href="${SITE_CONFIG.socialLinks.discord}" class="hover:text-white" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                <a href="${SITE_CONFIG.socialLinks.twitter}" class="hover:text-white" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 <a href="${SITE_CONFIG.socialLinks.github}" class="hover:text-white" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
         </div>
-        <div class="max-w-5xl mx-auto mt-6 border-t border-gray-800 pt-4 text-xs text-gray-500">&copy; 2025 ${SITE_CONFIG.siteName}. All rights reserved.</div>
+        <div class="max-w-5xl mx-auto mt-6 border-t border-gray-800 pt-4 text-xs text-gray-500 text-center">&copy; 2025 ${SITE_CONFIG.siteName}. All rights reserved.</div>
     </footer>
     `;
 }
