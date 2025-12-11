@@ -15,6 +15,7 @@ const SITE_CONFIG = {
     heroImage: "https://placehold.co/600x400/3b82f6/ffffff?text=Hero+Image",
     contactEmail: "info@calypsostudio.tech",
     contactPhone: "+977 9745690471",
+    contactWhatsApp: "+977 9745690471",
     socialLinks: {
         twitter: "https://twitter.com/calypsostudio",
         discord: "https://discord.gg/T4ty9EBU3S",
@@ -726,22 +727,24 @@ function showResultToast(wpm, win, accuracy) {
      const contactSection = document.getElementById('contact-container');
      if (!contactSection) return;
      const emailLink = `mailto:${SITE_CONFIG.contactEmail}`;
-     const phoneLink = `tel:${SITE_CONFIG.contactPhone.replace(/[^+\d]/g, '')}`;
+    const phoneLink = `tel:${SITE_CONFIG.contactPhone.replace(/[^+\d]/g, '')}`;
+    const whatsappDigits = SITE_CONFIG.contactWhatsApp.replace(/[^+\d]/g, '').replace(/^\+/, '');
+    const whatsappLink = `https://wa.me/${whatsappDigits}?text=${encodeURIComponent('Hello Calypso Studio!')}`;
      const discordLink = SITE_CONFIG.socialLinks.discord;
      const githubLink = SITE_CONFIG.socialLinks.github;
 
      contactSection.innerHTML = `
-     <section class="py-16 px-4">
+     <section class="py-20 px-4 bg-gradient-to-b from-blue-50/50 to-white">
          <div class="max-w-6xl mx-auto">
-             <div class="mb-12">
-                 <h2 class="text-4xl font-bold text-gray-900 mb-2">Contact Us</h2>
-                 <p class="text-gray-600">Reach out and we'll get back quickly</p>
+             <div class="text-center mb-12">
+                 <h2 class="text-4xl font-extrabold text-gray-900 mb-3">Get in Touch</h2>
+                 <p class="text-gray-600">We respond within 24 hours, usually much faster.</p>
              </div>
              <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                  <!-- Email Card -->
-                 <div class="bg-white rounded-xl border border-gray-200 p-6 hover-lift">
-                     <div class="flex items-center gap-4 mb-3">
-                         <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
+                 <div class="bg-white rounded-2xl border border-gray-200 p-6 hover-lift">
+                     <div class="flex items-center gap-4 mb-4">
+                         <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
                              <i class="fas fa-envelope text-xl"></i>
                          </div>
                          <h3 class="font-semibold text-lg text-gray-900">Email</h3>
@@ -750,22 +753,22 @@ function showResultToast(wpm, win, accuracy) {
                      <a href="${emailLink}" class="font-medium text-blue-600 hover:text-blue-700 text-sm">Send an Email →</a>
                  </div>
 
-                 <!-- Phone Card -->
-                 <div class="bg-white rounded-xl border border-gray-200 p-6 hover-lift">
-                     <div class="flex items-center gap-4 mb-3">
-                         <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
-                             <i class="fas fa-phone text-xl"></i>
+                 <!-- WhatsApp Card -->
+                 <div class="bg-white rounded-2xl border border-gray-200 p-6 hover-lift">
+                     <div class="flex items-center gap-4 mb-4">
+                         <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center">
+                             <i class="fab fa-whatsapp text-xl"></i>
                          </div>
-                         <h3 class="font-semibold text-lg text-gray-900">Phone</h3>
+                         <h3 class="font-semibold text-lg text-gray-900">WhatsApp</h3>
                      </div>
-                     <p class="text-sm text-gray-600 mb-4">${SITE_CONFIG.contactPhone}</p>
-                     <a href="${phoneLink}" class="font-medium text-green-600 hover:text-green-700 text-sm">Call Us →</a>
+                     <p class="text-sm text-gray-600 mb-4">${SITE_CONFIG.contactWhatsApp}</p>
+                     <a href="${whatsappLink}" target="_blank" rel="noopener" class="font-medium text-green-600 hover:text-green-700 text-sm">Message on WhatsApp →</a>
                  </div>
 
                  <!-- Discord Card -->
-                 <div class="bg-white rounded-xl border border-gray-200 p-6 hover-lift">
-                     <div class="flex items-center gap-4 mb-3">
-                         <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center">
+                 <div class="bg-white rounded-2xl border border-gray-200 p-6 hover-lift">
+                     <div class="flex items-center gap-4 mb-4">
+                         <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center">
                              <i class="fab fa-discord text-xl"></i>
                          </div>
                          <h3 class="font-semibold text-lg text-gray-900">Discord</h3>
@@ -775,9 +778,9 @@ function showResultToast(wpm, win, accuracy) {
                  </div>
 
                  <!-- GitHub Card -->
-                 <div class="bg-white rounded-xl border border-gray-200 p-6 hover-lift">
-                     <div class="flex items-center gap-4 mb-3">
-                         <div class="w-12 h-12 bg-gray-100 text-gray-700 rounded-full flex items-center justify-center">
+                 <div class="bg-white rounded-2xl border border-gray-200 p-6 hover-lift">
+                     <div class="flex items-center gap-4 mb-4">
+                         <div class="w-12 h-12 bg-gray-100 text-gray-700 rounded-xl flex items-center justify-center">
                              <i class="fab fa-github text-xl"></i>
                          </div>
                          <h3 class="font-semibold text-lg text-gray-900">GitHub</h3>
